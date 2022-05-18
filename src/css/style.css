@@ -1,0 +1,182 @@
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'mkt1', 'Courier New', Courier, monospace;
+    background: var(--color-secondary);
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    background-image: url("../assets/background.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main header {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header .title {
+    margin-top: 0;
+    color: var(--color-weak-title);
+    text-transform: uppercase;
+    font-size: 10rem;
+    line-height: 3rem;
+    -webkit-text-stroke: .2rem var(--color-strong-title);
+}
+
+main header #img-mk {
+    position: relative;
+    bottom: 0;
+    top: 5.6rem;
+    left: auto;
+    right: auto;
+    width: 6%;
+}
+
+.character-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-selection .big-character {
+    text-align: center;
+    width: 30%;
+    height: 70vh;
+    position: relative;
+}
+
+.character-selection .big-character img {
+    position: absolute;
+    height: 120%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#second-player {
+    height: 140%;
+    top: 38%;
+}
+
+.character-selection .big-character .name::before {
+    content: '';
+    height: 3.3rem;
+    width: 100%;
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+}
+
+.character-selection .big-character .name h2 {
+    color: yellow;
+    font-family: 'mkt1', sans-serif;
+    position: absolute;
+    bottom: -2rem;
+    width: 100%;
+    font-size: 4rem;
+}
+
+.character-selection .big-character.second-player .name::before,
+.character-selection .big-character.first-player .name::before {
+    background-color: var(--color-main-red);
+}
+
+/* background-color: var(--color-main-blue); */
+    /* border: 1px solid red; */
+/* } */
+
+.character-selection .character-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 42rem;
+    gap: 1.2rem;
+}
+
+.character-selection .character-list .character {
+    border: .2rem solid var(--color-standard);
+    /* background-color: var(--color-standard); */
+    background-color: rgb(128, 128, 128, .8);
+    width: 30%;
+    height: 10rem;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: .5rem;
+    position: relative;
+    transition: 0.15s ease-in-out;
+}
+
+.character-selection .character-list .character img {
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+}
+
+.character-selection .character-list .character.selected {
+    border: .2rem solid var(--color-medium-blue);
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character:hover {
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+    transform: scale(1.07);
+    z-index: 2;
+}
+
+.character-selection .character-list .character.second-player-selected {
+    border: .2rem solid var(--color-weak-red);
+    animation: c-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character.second-player-selected:hover {
+    animation: c-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character .tag {
+    display: none;
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    color: var(--color-medium-blue);
+    transition: opacity .3s ease-in-out;
+    animation: alternate;
+    animation: text-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character.selected .tag {
+    display: block;
+    animation: text-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character.second-player-selected .tag {
+    display: block;
+    animation: text-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
